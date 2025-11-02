@@ -1,0 +1,44 @@
+inherit: configs/default.yaml
+
+provider:
+  name: ollama
+  model_id: phi3:mini
+
+  batch_size: 8
+  max_new_tokens: 24
+
+templates:
+  labels: ["toxic", "non-toxic"]
+
+  variants:
+    - name: zero_shot
+      template: |
+        Decide if the following comment is toxic or non-toxic.
+        Return ONLY JSON: {"label":"toxic|non-toxic","score":0.xx}, where:
+        score = probability the comment is toxic, a number in [0.00, 1.00] with two decimals,
+        label = "toxic" if score ≥ 0.50 else "non-toxic"
+        Comment: {text}
+        Output:
+
+    - name: role
+      template: |
+        You are an automated moderation system. Consider toxicity only (insults, harassment, threats). Ignore disagreement, sarcasm, or strong opinions unless abusive.
+        Return ONLY JSON: {"label":"toxic|non-toxic","score":0.xx}, where:
+        score = probability the comment is toxic, a number in [0.00, 1.00] with two decimals,
+        label = "toxic" if score ≥ 0.50 else "non-toxic"
+        Comment: {text}
+        Output:
+
+    - name: few_shot_4
+      template: |
+        Classify comments as 'toxic' or 'non-toxic' based on harassment or insults.
+        Examples:
+        Comment: You are so fucking stupid, stop ruining the page with your garbage edits. Output: {"label":"toxic","score":0.95}
+        Comment: Shut up already, nobody cares about your opinion. Output: {"label":"toxic","score":0.85}
+        Comment: Could you clarify which source you're referring to? Output: {"label":"non-toxic","score":0.05}
+        Comment: Not sure the comparison you made is accurate, but I see the reasoning behind it. Output: {"label":"non-toxic","score":0.10}
+        Now classify, return ONLY JSON: {"label":"toxic|non-toxic","score":0.xx}, where:
+        score = probability the comment is toxic, a number in [0.00, 1.00] with two decimals,
+        label = "toxic" if score ≥ 0.50 else "non-toxic"
+        Comment: {text}
+        Output:

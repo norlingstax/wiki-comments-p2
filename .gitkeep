@@ -1,0 +1,5 @@
+data/raw/.gitkeep
+data/processed/.gitkeep
+data/external/.gitkeep
+data/manifests/.gitkeep
+models/.gitkeep

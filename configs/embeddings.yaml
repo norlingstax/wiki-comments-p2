@@ -1,0 +1,19 @@
+inherit: configs/default.yaml
+
+features:
+  kind: sentence # "sentence" | "wordvec"
+  sentence_model: sentence-transformers/all-MiniLM-L6-v2
+  vectors_path: data/external/crawl-300d-2M.vec
+  cache: true
+  lowercase: true
+
+model:
+  name: logreg
+  max_iter: 1000
+
+evaluation:
+  predict_threshold: 0.5
+
+train:
+  n_jobs: -1
+  save_dir: models/embeddings

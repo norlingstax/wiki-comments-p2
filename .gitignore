@@ -1,3 +1,18 @@
+# Data 
+data/** 
+!data/
+!data/**/
+!data/**/.gitkeep
+
+# Models 
+models/**
+!models/
+!models/**/
+!models/**/.gitkeep
+
+# CSV
+*.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

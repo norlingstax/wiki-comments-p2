@@ -1,0 +1,23 @@
+paths:
+  data_raw: data/raw/wiki_comments.csv
+  manifests_dir: data/manifests
+  processed_dir: data/processed
+  outputs_dir: outputs
+  figures_dir: outputs/figures
+  metrics_dir: outputs/metrics
+
+data:
+  text_col: text
+  label_col: label
+  drop_na_text: true
+  positive_label: 1
+  test_size: 0.15
+  val_size: 0.10 
+  stratify: true
+  random_state: 1337
+
+runtime:
+  num_workers: 4
+  fp16: false
+  device: auto 
+  seed: 1337

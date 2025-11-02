@@ -1,0 +1,19 @@
+inherit: configs/default.yaml
+
+params:
+  model_id: distilbert-base-uncased
+  max_length: 128
+  batch_size: 24
+  lr: 3e-5
+  weight_decay: 0.01
+  epochs: 1
+  warmup_ratio: 0.1
+  gradient_accumulation_steps: 2
+  fp16: false
+  eval_steps: 1000
+  save_dir: models/transformer
+  do_finetune: true
+
+evaluation:
+  predict_threshold: 0.5
+
