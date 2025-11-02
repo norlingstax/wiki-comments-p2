@@ -1,6 +1,6 @@
 # Toxic Comment Classification (Part 2)
 
-Continuation of [**Part 1**](https://github.com/norlingstax/ml-projects/tree/main/NLP/wiki_comments_p1) using modern ML tools:
+Continuation of [**Part 1**](https://github.com/norlingstax/wiki-comments-p1) using modern ML tools:
 
 - **Embeddings + classical model**
 - **Fine-tuned Transformers**
