@@ -103,6 +103,13 @@ scripts\setup.sh            # Windows (Git Bash)
 Place the [raw CSV](https://www.kaggle.com/datasets/hetvigandhi03/imported-data) into `data/raw/`.
 The CLI will create **manifests (train/val/test)** if missing.
 
+In `configs/default.yaml`, set:
+
+   ```yaml
+   paths:
+     data_raw: data/raw/wiki_comments.csv
+   ```
+
 ### fastText `.vec` (for word-vector features)
 
 1. Download `crawl-300d-2M.vec` from [fastText CC](https://fasttext.cc/docs/en/english-vectors.html) (or any `.vec` you prefer).
@@ -266,4 +273,3 @@ Part 2 focuses on **modern NLP methods** while maintaining reproducibility:
 * Unified metric outputs and plots
 
 All approaches share the same structure and output format for **easy comparison** and **clean experiment tracking**.
-```
